@@ -1,19 +1,13 @@
 <template>
   <view class="index">
     <text>{{ msg }}</text>
+    <span @click="Taro.navigateTo({ url: '/user/pages/index/index' })">12345</span>
   </view>
 </template>
 
-<script>
+<script setup>
+import Taro from '@tarojs/taro'
 import { ref } from 'vue'
 import './index.less'
-
-export default {
-  setup () {
-    const msg = ref('Hello world')
-    return {
-      msg
-    }
-  }
-}
+const msg = ref('Hello world')
 </script>

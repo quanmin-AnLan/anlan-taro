@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "anlan-taro",
   "description": "Anlan工具箱",
-  "appid": "touristappid",
+  "appid": "wxcae87c335254f7b5",
   "setting": {
     "urlCheck": true,
     "es6": false,
