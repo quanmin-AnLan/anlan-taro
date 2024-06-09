@@ -1,12 +1,14 @@
 export default defineAppConfig({
   pages: [
-    'pages/index/index'
+    'pages/index/index',
+    'pages/contact/index'
   ],
   subpackages: [
     {
       root: 'penguinFight',
       pages: [
-        'pages/index/index'
+        'pages/index/index',
+        'pages/skin/index'
       ]
     }, {
       root: 'user',
@@ -17,8 +19,8 @@ export default defineAppConfig({
   ],
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
+    navigationBarBackgroundColor: '#080808',
+    navigationBarTextStyle: 'white'
   }
 })
