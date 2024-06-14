@@ -8,6 +8,7 @@
     </div>
     <div class="penguin-fight-main">
       <AlButton text="替身" @click="Taro.navigateTo({url: '/penguinFight/pages/skin/index'})"></AlButton>
+      <AlButton text="强化" @click="Taro.navigateTo({url: '/penguinFight/pages/upgrade/index'})"></AlButton>
     </div>
   </div>
 </template>

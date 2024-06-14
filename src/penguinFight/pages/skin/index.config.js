@@ -1,3 +1,3 @@
 export default definePageConfig({
-    navigationBarTitleText: '替身'
+    navigationBarTitleText: '全民大乐斗-替身'
 })

@@ -8,7 +8,8 @@ export default defineAppConfig({
       root: 'penguinFight',
       pages: [
         'pages/index/index',
-        'pages/skin/index'
+        'pages/skin/index',
+        'pages/upgrade/index'
       ]
     }, {
       root: 'user',
@@ -19,7 +20,7 @@ export default defineAppConfig({
   ],
   window: {
     backgroundTextStyle: 'light',
-    navigationBarTitleText: 'WeChat',
+    navigationBarTitleText: 'Anlan工具箱',
     navigationBarBackgroundColor: '#080808',
     navigationBarTextStyle: 'white'
   }
