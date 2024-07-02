@@ -15,5 +15,17 @@
 </template>
 
 <script setup>
+import Taro from '@tarojs/taro'
 import './index.less'
+const shareData = {
+	title: 'Anlan工具箱',
+	imageUrl: 'http://img.anlan.xyz/anlan.jpg',
+	path: '/pages/index/index'
+}
+Taro.useShareAppMessage(() => {
+	return shareData
+})
+Taro.useShareTimeline(() => {
+	return shareData
+})
 </script>

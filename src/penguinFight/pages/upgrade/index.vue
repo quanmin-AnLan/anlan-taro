@@ -29,6 +29,19 @@ import { ref } from 'vue'
 import apis from '@/api/api'
 import './index.less'
 
+
+const shareData = {
+  title: 'Anlan工具箱 - 强化',
+  imageUrl: 'http://img.anlan.xyz/anlan.jpg',
+  path: '/penguinFight/pages/upgrade/index'
+}
+Taro.useShareAppMessage(() => {
+  return shareData
+})
+Taro.useShareTimeline(() => {
+  return shareData
+})
+
 const tabConfig = [
   {
     label: '武器',

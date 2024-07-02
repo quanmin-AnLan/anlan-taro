@@ -17,4 +17,16 @@
 import Taro from '@tarojs/taro'
 import AlButton from '@/components/AlButton.vue'
 import './index.less'
+
+const shareData = {
+  title: 'Anlan工具箱 - 全民大乐斗',
+  imageUrl: 'http://img.anlan.xyz/anlan.jpg',
+  path: '/penguinFight/pages/index/index'
+}
+Taro.useShareAppMessage(() => {
+  return shareData
+})
+Taro.useShareTimeline(() => {
+  return shareData
+})
 </script>

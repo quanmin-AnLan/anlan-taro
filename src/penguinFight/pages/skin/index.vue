@@ -40,6 +40,20 @@ import { ref, computed } from 'vue'
 import apis from '@/api/api'
 import { selectConfig } from './config'
 import './index.less'
+
+
+const shareData = {
+  title: 'Anlan工具箱 - 替身',
+  imageUrl: 'http://img.anlan.xyz/anlan.jpg',
+  path: '/penguinFight/pages/skin/index'
+}
+Taro.useShareAppMessage(() => {
+  return shareData
+})
+Taro.useShareTimeline(() => {
+  return shareData
+})
+
 const active = ref('role')
 const dialogActive = ref(1)
 const tabs = [
