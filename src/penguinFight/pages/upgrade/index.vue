@@ -18,7 +18,7 @@
         </nut-tab-pane>
       </nut-tabs>
       <!-- 弹窗 -->
-      <div></div>
+      <upgradeDialog v-model="dialogVisible" :row="row"></upgradeDialog>
     </div>
   </nut-config-provider>
 </template>
@@ -27,6 +27,7 @@
 import Taro from '@tarojs/taro'
 import { ref } from 'vue'
 import apis from '@/api/api'
+import upgradeDialog from './components/upgradeDialog.vue'
 import './index.less'
 
 
