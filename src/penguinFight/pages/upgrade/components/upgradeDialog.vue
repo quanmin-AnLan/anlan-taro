@@ -1,11 +1,12 @@
 <template>
   <nut-config-provider>
-    <nut-popup v-model:visible="modelValue" closeable round :style="{ width: '80%', height: '60%' }" @closed="handleClose">
+    <nut-popup v-model:visible="show" closeable round :style="{ width: '80%', height: '60%' }" @closed="handleClose">
       <nut-cell :title="'强化模拟 - ' + row.title"></nut-cell>
       <section class="dialog-container">
         <!-- 强化类型 -->
         <div class="upgrade-type-button">
-          <nut-switch v-model="isStrong" active-text="强化特惠" inactive-text="普通强化"></nut-switch>
+          <span class="button-text">强化特惠：</span>
+          <nut-switch v-model="isStrong" active-text="开" inactive-text="关"></nut-switch>
         </div>
         <!-- 强化信息展示 -->
         <img :src="row.cover" class="dialog-cover"></img>
@@ -16,11 +17,10 @@
         <div v-else>已满级</div>
         <!-- 强化进度 -->
         <div class="upgrade-progress">
-          <nut-progress text-inside :stroke-width="30" :percentage="percent" class="progress" status="active"
+          <nut-progress :show-text="false" :stroke-width="30" :percentage="percent" class="progress" status="active"
             stroke-color="linear-gradient(270deg, rgba(18,126,255,1) 0%,rgba(32,147,255,1) 32.815625%,rgba(13,242,204,1) 100%)">
-            <div class="progress-text">{{ num }}</div>
           </nut-progress>
-          <div>满祝福值：{{ row.info && row.info[level] }}</div>
+          <div v-if="level < 10">祝福值:{{ num }}/{{row.info && row.info[level] }}</div>
         </div>
         <!-- 操作按钮 -->
         <div class="upgrade-button">
@@ -35,9 +35,9 @@
 
 <script setup>
 import Taro from '@tarojs/taro'
-import { ref, toRefs, computed } from 'vue'
+import { ref, toRefs, computed, watch } from 'vue'
 const props = defineProps({
-  modelValue: {
+  visible: {
     type: Boolean,
     default: false
   },
@@ -46,12 +46,21 @@ const props = defineProps({
     default: () => ({})
   }
 })
-let { modelValue, row } = toRefs(props)
+let { visible, row } = toRefs(props)
 
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['visible'])
 const handleClose = () => {
-  emits('update:modelValue', false)
+  emits('visible', false)
+  level.value = 0
+  num.value = 0
+  percent.value = 0
+  money.value = 0
+  isStrong.value = false
 }
+const show = ref(false)
+watch(visible, (val) => {
+  show.value = val
+})
 
 const level = ref(0)
 const num = ref(0)
@@ -92,13 +101,27 @@ const levelUp = () => {
   level.value++
   num.value = 0
   percent.value = 0
+  if (level.value === 10) {
+    percent.value = 100
+  }
 }
 
 </script>
 
 <style lang="less">
 .dialog-container {
-  margin: 0 24px;
+  margin: 0 12px;
+  color: yellow;
+  text-align: center;
+}
+
+.upgrade-type-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .button-text {
+    margin-right: 8px;
+  }
 }
 
 .dialog-cover {
@@ -116,6 +139,7 @@ const levelUp = () => {
   display: flex;
   line-height: 30px;
   margin: 16px;
+  color: red;
 }
 
 .progress {

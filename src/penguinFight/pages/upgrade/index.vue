@@ -18,7 +18,8 @@
         </nut-tab-pane>
       </nut-tabs>
       <!-- 弹窗 -->
-      <upgradeDialog v-model="dialogVisible" :row="row"></upgradeDialog>
+      <upgradeDialog :visible="dialogVisible" @visible="changeVisible" :row="row">
+      </upgradeDialog>
     </div>
   </nut-config-provider>
 </template>
@@ -86,5 +87,8 @@ const openUpgrade = (item) => {
   result.info = infoData.value[activeName.value][item.type - 1]
   row.value = result
   dialogVisible.value = true
+}
+const changeVisible = (val) => {
+  dialogVisible.value = val
 }
 </script>
