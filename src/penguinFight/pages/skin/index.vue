@@ -23,7 +23,7 @@
 
       <nut-popup v-model:visible="dialogShow" closeable round :style="{ width: '80%', height: '60%' }" @closed="dialogActive = 1">
         <nut-cell :title="'属性展示 - ' + dialogInfo.name"></nut-cell>
-        <nut-tabs v-model="dialogActive" background="gold" :animated-time="0" v-if="dialogInfo.info">
+        <nut-tabs v-model="dialogActive" background="gold" title-scroll :animated-time="0" v-if="dialogInfo.info">
           <nut-tab-pane v-for="(item, index) in dialogTabs" :key="index" :title="item.label" :pane-key="item.value">
             <nut-cell v-for="(one, i) in dialogInfo.info[dialogActive]" :key="i" :title="one"></nut-cell>
           </nut-tab-pane>
@@ -67,11 +67,16 @@ const tabs = [
   }
 ]
 const dialogTabs = [
-  {label: '1星', value: 1},
-  {label: '2星', value: 2},
-  {label: '3星', value: 3},
-  {label: '4星', value: 4},
-  {label: '5星', value: 5},
+  { label: '1星', value: 1 },
+  { label: '2星', value: 2 },
+  { label: '3星', value: 3 },
+  { label: '4星', value: 4 },
+  { label: '5星', value: 5 },
+  { label: '6星', value: 6 },
+  { label: '7星', value: 7 },
+  { label: '8星', value: 8 },
+  { label: '9星', value: 9 },
+  { label: '10星', value: 10 },
 ]
 
 const pickerShow = ref(false)

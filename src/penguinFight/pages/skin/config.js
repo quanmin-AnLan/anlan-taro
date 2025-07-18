@@ -20,6 +20,14 @@ export const selectConfig = {
         "text": "最终伤害减免"
     },
     {
+        "value": "内功真气加成",
+        "text": "内功真气加成"
+    },
+    {
+        "value": "内功劲力加成",
+        "text": "内功劲力加成"
+    },
+    {
         "value": "抵挡",
         "text": "抵挡"
     },

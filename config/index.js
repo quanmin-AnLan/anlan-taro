@@ -99,6 +99,13 @@ export default defineConfig(async (merge, { command, mode }) => {
       }
     },
     h5: {
+      router: {
+        mode: 'browser',
+        customRoutes: {
+          'pages/index/index': ['/index'],
+          'pages/contact/index': ['/contact'],
+        }
+      },
       webpackChain(chain) {
         chain.plugin('unplugin-vue-components').use(ComponentsPlugin({
           resolvers: [NutUIResolver({taro: true})]
